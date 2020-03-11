@@ -1,5 +1,7 @@
 //Definerer en klasse som implementer en lenket liste, som kan legge til objekter, endre og fjerne disse.
 //Den har og en indre klasse Node, som opprettes ettersom det legges til T-objekter.
+//Elias er homo
+
 
 class Lenkeliste<T> implements Liste<T> {
   public int antall =0;
