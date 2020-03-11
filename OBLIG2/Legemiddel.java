@@ -7,14 +7,14 @@ abstract class Legemiddel {
   double pris;
   double virkestoff;
   int ID;
-  int antall = 0;
+  static ArrayList<String> legemidler = new ArrayList();
 
   public Legemiddel(String legemiddelNavn, double prisPaaLegemiddel, double virke ) {
     navn = legemiddelNavn;
     pris = prisPaaLegemiddel;
     virkestoff = virke;
-    ID = antall;
-    antall++;
+    ID = legemidler.size();
+    legemidler.add(legemiddelNavn);
   }
   //Returnerer ID'en til legemiddelet.
   public int  hentId() {
