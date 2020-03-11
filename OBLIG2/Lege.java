@@ -25,7 +25,6 @@ class Lege<T extends Comparable<Lege>> {
   }
 
   public T hentUtskrevedeResepter(int ID) {
-    System.out.println("hei");
     return utskrevedeResepter.hent(ID);
   }
   /*
