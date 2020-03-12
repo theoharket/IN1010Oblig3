@@ -1,13 +1,15 @@
 //Definerer en klasse som implementer en lenket liste, som kan legge til objekter, endre og fjerne disse.
 //Den har og en indre klasse Node, som opprettes ettersom det legges til T-objekter.
-//Elias er homo
+//Elias er h
+//Elias er megah
+//Theo er megaH
 
 
 class Lenkeliste<T> implements Liste<T> {
   public int antall =0;
   public Node start = null;
 //Definerer Node-klassen som holder styr på hvilket objekt som er neste, og data-objekt av typen T.
-class Node {
+class Node { //nodeklassen
   Node neste = null;
   T data;
     Node(T x) {
@@ -138,6 +140,7 @@ class Node {
     }
 
     //Definerer en metode som fjerner hva som kom inn først, og returnerer dette T-objektet.
+    //theodorergaysomikkegirmegadmin
     public T fjern() {
       if (antall==0)   {
       throw new UgyldigListeIndeks(antall);
