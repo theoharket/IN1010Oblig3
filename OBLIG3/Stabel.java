@@ -22,4 +22,6 @@ class Stabel<T> extends Lenkeliste<T> {
     fjern(antall-1);
     return sisteNode;
   }
+
+  //Testkommentar
 }
