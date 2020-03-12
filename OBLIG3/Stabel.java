@@ -23,5 +23,5 @@ class Stabel<T> extends Lenkeliste<T> {
     return sisteNode;
   }
 
-  //Testkommentar
+  //Testkommentar4
 }
