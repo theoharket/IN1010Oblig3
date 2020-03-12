@@ -42,7 +42,7 @@ abstract class Legemiddel {
       }
 
   }
-
+//testkommentar3
   public String toString() {
     return "Navn paa legemiddel: " + navn + "\nPris: " + pris + "\nVirkestoff i mg: " + virkestoff + "\nID'en til legemiddelet: " + ID + "\n";
   }
