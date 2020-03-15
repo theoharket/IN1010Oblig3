@@ -24,6 +24,20 @@ class Filleser{
           }
 
           //Alternativt folge rekkefolgen i dokumentet
+          int teller = 0;
+          if (testForNyType[0] == "#"){
+              teller ++;
+              fil.nextLine();
+          }
+          String[] informasjon = linje.split("");
+          if (teller = 0){
+              Pasient nyPasient = pasient(informasjon[1],informasjon[0]);
+          }
+          else if (teller = 1){
+              Lege nyLege = Lege (informasjon [0], informasjon[1]);
+          }
+          //etc.
+
       }
     }
 }
