@@ -2,9 +2,9 @@ import java.util.Scanner;
 import java.io.File;
 
 
-class Filleser{
+class Innleser{
     String type;
-    public Filleser(String filnavn){
+    public Innleser(String filnavn){
         Scanner fil = null;
 
         try{
@@ -15,29 +15,38 @@ class Filleser{
         }
         while (fil.hasNextLine()){
           String linje = fil.nextLine(); // Legger hele linjen i en variabel
-          String[] testForNyType = linje.split(""); // Deler linjen pa mellomrom/whitespace
-          System.out.println(testForNyType[0]);
+          String[] testForNyType = linje.split(",");
+          System.out.println(linje); // Deler linjen pa mellomrom/whitespace
+          //leggTilLege(linje);
+          //leggTilPasient(linje);
+          leggTilResept(linje);
+            }
+        }
 
-          if (testForNyType[0] == "#"){
-            System.out.println("Her kommer en ny type");
-            type = testForNyType[1];
-          }
+    private void leggTilResept(String linje){
+        System.out.println("Legger til en Resept");
 
-          //Alternativt folge rekkefolgen i dokumentet
-          int teller = 0;
-          if (testForNyType[0] == "#"){
-              teller ++;
-              fil.nextLine();
-          }
-          String[] informasjon = linje.split("");
-          if (teller = 0){
-              Pasient nyPasient = pasient(informasjon[1],informasjon[0]);
-          }
-          else if (teller = 1){
-              Lege nyLege = Lege (informasjon [0], informasjon[1]);
-          }
-          //etc.
+        }
 
-      }
-    }
+
+    private void leggTilPasient(String linje){
+        String[] pasientInfo = linje.split(",");
+        String konstruktorNavn = pasientInfo[0];
+        String fodselsNummer = pasientInfo[1];
+        Pasient nyPasient = new Pasient(fodselsNummer,konstruktorNavn);
+        }
+
+    private void leggTilLege(String linje){
+
+        String[] legeInfo = linje.split(",");
+        int kontID = Integer.parseInt(legeInfo[1]);
+        String konstruktorNavn = legeInfo[0];
+
+        if (kontID == 0){
+            Lege nyLege = new Lege(legeInfo[0]);
+        }else{
+            Spesialist nySpesialist = new Spesialist(legeInfo[0],kontID);
+            }
+        }
+
 }
