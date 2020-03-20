@@ -2,7 +2,7 @@
 //lege kan skrive ut resepter eller ikke. Denne klassen tar dermed også inn en unik kontrollID.
 class Spesialist extends Lege implements Godkjenningsfritak {
 
-    Liste<Legemiddel> spesialistResepter= new Lenkeliste<Legemiddel>();
+    Liste<Legemiddel> narktoiskeResepter= new Lenkeliste<Legemiddel>();
 
   public Spesialist(String navnetTilLegen, int ID) {
     super(navnetTilLegen);
@@ -11,8 +11,11 @@ class Spesialist extends Lege implements Godkjenningsfritak {
 
   public Narkotisk skrivNarkotiskResept(String legemiddelNavn, double prisPaaLegemiddel, double virke , int styrkePaaLegemiddel) throws
 UlovligUtskrift {
+  skrevetUtNarkotisk = true;
+  antSkrevetNarkotiske++;
+  antallNarkotiske++;
   Narkotisk nyResept = new Narkotisk(legemiddelNavn, prisPaaLegemiddel, virkestoff, styrkePaaLegemiddel);
-  spesialistResepter.leggTil(nyResept);
+  narkotiskeResepter.leggTil(nyResept);
   return nyResept;
 }
   @Override
