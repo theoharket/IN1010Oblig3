@@ -8,15 +8,6 @@ class Spesialist extends Lege implements Godkjenningsfritak {
     super(navnetTilLegen);
     IDLege = ID;
   }
-
-  public Narkotisk skrivNarkotiskResept(String legemiddelNavn, double prisPaaLegemiddel, double virke , int styrkePaaLegemiddel) throws
-UlovligUtskrift {
-  skrevetUtNarkotisk = true;
-  antSkrevetNarkotiske++;
-  antallNarkotiske++;
-  Narkotisk nyResept = new Narkotisk(legemiddelNavn, prisPaaLegemiddel, virkestoff, styrkePaaLegemiddel);
-  narkotiskeResepter.leggTil(nyResept);
-  return nyResept;
 }
   @Override
 
