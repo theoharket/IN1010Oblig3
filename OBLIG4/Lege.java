@@ -8,7 +8,7 @@ class Lege {
   int antallVanedannende = 0;
   String navn;
   int IDLege;
-  static Liste<Lege> leger = new SortertLenkeliste<Lege>(); //Denne skal legges over til nettet.
+  static Liste<String> leger = new SortertLenkeliste<String>(); //Denne skal legges over til nettet.
   Liste<Resept> utskrevedeResepter = new Lenkeliste<Resept>();
 
   public Lege(String navnetTilLegen){
@@ -31,7 +31,7 @@ class Lege {
 
   public void skrivUtAlleLeger() {
     int i =0;
-    while(leger.neste!=NULL) {
+    while(i<leger.stoerrelse()) {
       navn = leger.hent(i);
       System.out.println(navn);
       i++;
@@ -48,8 +48,16 @@ class Lege {
     return false;
   }
 
-  public Lege leggTilLegeListe(Lege legen) {
+  public void leggTilLegeListe(Lege legen) {
     legene.leggTil(legen);
+  }
+
+  public Lege _returnerLegeObjekt(String navn) {
+    for (int i=0; i<leger.stoerrelse(); i++) {
+      if (legene.hent(i).hentNavn() == navn) {
+        return legene.hent(i);
+      }
+    }
   }
 
   public Resept hentUtskrevedeResepter(int ID) {
@@ -64,7 +72,8 @@ UlovligUtskrift {
   } else if (legemiddel instanceof Narkotisk) {
     antallNarkotiske++;
   }
-  Hvit nyResept = new Hvit(true, legemiddel,pasient, reit);
+  Lege legen = _returnerLegeObjekt(navn);
+  Hvit nyResept = new Hvit(true, legemiddel,legen, pasient, reit);
   utskrevedeResepter.leggTil(nyResept);
   return nyResept;
 }
@@ -77,8 +86,8 @@ UlovligUtskrift {
       } else if (legemiddel instanceof Narkotisk) {
         antallNarkotiske++;
       }
-      MilitaerResept nyResept = new MilitaerResept(true,legemiddel,  pasient, reit);
-      //pasient.leggTilResept(nyResept);    
+      Lege legen = _returnerLegeObjekt(navn);
+      MilitaerResept nyResept = new MilitaerResept(true,legemiddel, legen, pasient, reit);
       utskrevedeResepter.leggTil(nyResept);
       return nyResept;
   }
@@ -90,7 +99,8 @@ UlovligUtskrift {
       } else if (legemiddel instanceof Narkotisk) {
         antallNarkotiske++;
       }
-      PResept nyResept = new PResept(true, legemiddel,  pasient);
+      Lege legen = _returnerLegeObjekt(navn);
+      PResept nyResept = new PResept(true, legemiddel, legen, pasient);
       utskrevedeResepter.leggTil(nyResept);
       return nyResept;
   }
@@ -102,7 +112,8 @@ UlovligUtskrift {
       } else if (legemiddel instanceof Narkotisk) {
         antallNarkotiske++;
       }
-      BlaaResept nyResept = new BlaaResept(true, legemiddel, pasient, reit);
+      Lege legen = _returnerLegeObjekt(navn);
+      BlaaResept nyResept = new BlaaResept(true, legemiddel, legen,  pasient, reit);
       utskrevedeResepter.leggTil(nyResept);
       return nyResept;
   }
