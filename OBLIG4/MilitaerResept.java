@@ -1,7 +1,7 @@
 //Definerer en subklasse av Resept, som gjør akkurat det samme som Resept-klassen. bare at prisen for legemiddelet er 0.
 class MilitaerResept extends Hvit {
   double pris;
-  public MilitaerResept(boolean erDenGyldig, Legemiddel middel, String navnPaaLege, Pasient p, int antall) {
+  public MilitaerResept(boolean erDenGyldig, Legemiddel middel, Lege navnPaaLege, Pasient p, int antall) {
     super(erDenGyldig, middel, navnPaaLege, p, antall);
     pris = 0;
   }

@@ -1,7 +1,9 @@
 
 //Definerer en Lege-klasse som tar inn navnet til legen.
 import java.util.*;
+//import LegeListe;
 class Lege {
+  static Liste<Lege> LegeListe = new Stabel<Lege>();
   boolean skrevetUtNarkotisk = false;
   int antSkrevetNarkotiske =0;
   int antallNarkotiske = 0;
@@ -32,40 +34,25 @@ class Lege {
   public void skrivUtAlleLeger() {
     int i =0;
     while(i<leger.stoerrelse()) {
-      navn = leger.hent(i);
-      System.out.println(navn);
+      System.out.println(leger.hent(i));
       i++;
     }
   }
 
-  public boolean finnesLege(String legeNavn) {
-    legeNavn = legeNavn.toLowerCase();
-    for (int i=0; i<leger.stoerrelse();i++) {
-      if (leger.hent(i).toLowerCase()==legeNavn) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  public void leggTilLegeListe(Lege legen) {
-    legene.leggTil(legen);
-  }
-
   public Lege _returnerLegeObjekt(String navn) {
     for (int i=0; i<leger.stoerrelse(); i++) {
-      if (legene.hent(i).hentNavn() == navn) {
-        return legene.hent(i);
+      if (LegeListe.hent(i).hentNavn() == navn) {
+        return LegeListe.hent(i);
       }
     }
+    return LegeListe.hent(0);
   }
 
   public Resept hentUtskrevedeResepter(int ID) {
     return utskrevedeResepter.hent(ID);
   }
 
-  public Hvit skrivHvitResept(Legemiddel legemiddel, Pasient pasient, int reit) throws
-UlovligUtskrift {
+  public Hvit skrivHvitResept(Legemiddel legemiddel, Pasient pasient, int reit) {
 
   if (legemiddel instanceof Vanedannende) {
     antallVanedannende++;
@@ -79,7 +66,7 @@ UlovligUtskrift {
 }
 
   public MilitaerResept skrivMillitaerResept(Legemiddel legemiddel, Pasient pasient, int
-  reit) throws UlovligUtskrift {
+  reit){
 
       if (legemiddel instanceof Vanedannende) {
         antallVanedannende++;
@@ -92,7 +79,7 @@ UlovligUtskrift {
       return nyResept;
   }
 
-  public PResept skrivPResept(Legemiddel legemiddel, Pasient pasient) throws UlovligUtskrift {
+  public PResept skrivPResept(Legemiddel legemiddel, Pasient pasient)  {
 
       if (legemiddel instanceof Vanedannende) {
         antallVanedannende++;
@@ -105,8 +92,7 @@ UlovligUtskrift {
       return nyResept;
   }
 
-  public BlaaResept skrivBlaaResept(Legemiddel legemiddel, Pasient pasient, int reit) throws
-  UlovligUtskrift  {
+  public BlaaResept skrivBlaaResept(Legemiddel legemiddel, Pasient pasient, int reit) {
       if (legemiddel instanceof Vanedannende) {
         antallVanedannende++;
       } else if (legemiddel instanceof Narkotisk) {

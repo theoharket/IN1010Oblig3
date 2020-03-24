@@ -2,7 +2,7 @@
 //Prisen blir også redusert med 108kr, men ikke billigere enn 0.
 class PResept extends Hvit {
   double pris;
-  public PResept(boolean erDenGyldig, Legemiddel middel, String navnPaaLege, Pasient p) {
+  public PResept(boolean erDenGyldig, Legemiddel middel, Lege navnPaaLege, Pasient p) {
     super(erDenGyldig, middel, navnPaaLege, p, 3);
     pris = settPrisPresept();
 

@@ -20,5 +20,13 @@ class Pasient {
   		return pasientNavn;
   	}
 
+		public int hentPasientID() {
+			return pasientID;
+		}
+
+		void leggTilResept(Resept r) {
+			resepter.leggTil(r);
+		}
+
 
 }

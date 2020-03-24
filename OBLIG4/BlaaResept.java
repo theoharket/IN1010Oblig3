@@ -2,7 +2,7 @@
 
 class BlaaResept extends Resept {
   double pris;
-  public BlaaResept(boolean erDenGyldig, Legemiddel middel, String navnPaaLege, Pasient p, int antall) {
+  public BlaaResept(boolean erDenGyldig, Legemiddel middel, Lege navnPaaLege, Pasient p, int antall) {
     super(erDenGyldig, middel, navnPaaLege, p, antall);
     pris = middel.hentPris()*0.25;
   }

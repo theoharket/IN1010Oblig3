@@ -8,7 +8,6 @@ class Spesialist extends Lege implements Godkjenningsfritak {
     super(navnetTilLegen);
     IDLege = ID;
   }
-}
   @Override
 
   //Metode som returnerer kontroll ID'en til spesialisten.

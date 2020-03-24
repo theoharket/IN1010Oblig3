@@ -1,20 +1,42 @@
+
 //Definerer en klasse som implementer en lenket liste, som kan legge til objekter, endre og fjerne disse.
 //Den har og en indre klasse Node, som opprettes ettersom det legges til T-objekter.
+import java.util.*;
+import java.util.Iterator;
 
 class Lenkeliste<T> implements Liste<T> {
   public int antall =0;
   public Node start = null;
 //Definerer Node-klassen som holder styr på hvilket objekt som er neste, og data-objekt av typen T.
-class Node {
+class Node { //nodeklassen
   Node neste = null;
   T data;
     Node(T x) {
       data = x;
     }
 }
-
     Lenkeliste() {
 
+    }
+
+
+    class LenkelisteIterator implements Iterator<T>{
+      Node current = start;
+      T aktuelle = null;
+      int teller = 0;
+
+      public boolean hasNext(){ //returnerer true dersom next metoden returnerer en annen verdi for T enn null. ellers false.
+        return(teller < stoerrelse());
+        }
+
+
+      public T next(){ //Her skal undersøke om Noden som inneholder T har en Neste som også har en T verdi.
+        return hent(teller++);
+    }
+  }
+
+    public Iterator<T> iterator(){
+      return new LenkelisteIterator();
     }
     //Definerer en metode som returnerer antall objekter i lenkelisten.
     public int stoerrelse() {

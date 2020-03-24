@@ -6,12 +6,12 @@ Liste<Pasient> PasientListe = new Lenkeliste<Pasient>();
 Liste<Vanlig> vanligLegemiddel = new Lenkeliste<Vanlig>();
 Liste<Narkotisk> NarkotiskLegemiddel = new Lenkeliste<Narkotisk>();
 Liste<Vanedannende> Vanedannende = new Lenkeliste<Vanedannende>();
-Liste<Lege> LegeListe = new Lenkeliste<Lege>();
 Liste<Spesialist> Spesialister = new Lenkeliste<Spesialist>();
+Liste<Lege> LegeListe = new Stabel<Lege>();
 Liste<Blaa> BlaaResepter = new Lenkeliste<Blaa>();
-Liste<Hvite> HviteResepter = new Lenkeliste<Hvite>();
-Liste<Presepter> PResepter = new Lenkeliste<Presepter>();
-Liste<Militaerresepter> MilitaerResepter = new Lenkeliste<Militaerresepter>();
+Liste<Hvit> HviteResepter = new Lenkeliste<Hvit>();
+Liste<PResept> PResepter = new Lenkeliste<PResept>();
+Liste<MilitaerResept> MilitaerResepter = new Lenkeliste<MilitaerResept>();
 
 //Innlesing skal kalles på i konstruktøren.....
 
@@ -183,9 +183,13 @@ public void Innlesing(String filnavn){
     private void opprettLegeEllerSpesialist(String navn, String kontrollid){
       int kontrollID = Integer.parseInt(kontrollid);
       if(kontrollID == 0){
-        LegeListe.leggTil(new Lege(navn));
+        Lege nyLege = new Lege(navn);
+        (nyLege.LegeListe).leggTil(nyLege);
+        LegeListe.leggTil(nyLege);
       }else{
-        Spesialister.leggTil(new Spesialist(navn, kontrollID));
+        Spesialist nySpesialist = new Spesialist(navn, kontrollID);
+        (nySpesialist.LegeListe).leggTil(nySpesialist);
+        Spesialister.leggTil(nySpesialist);
       }
     }
 
