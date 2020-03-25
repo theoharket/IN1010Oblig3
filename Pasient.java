@@ -1,14 +1,15 @@
 class Pasient {
 	String fodselsnummer;
   	String pasientNavn;
-  	static int pasientID =0;
+	int pasientIDnummer;
+  	static int pasientID = 0;
   	Liste<Resept> resepter = new Stabel<Resept>();
 
 
-  	Pasient(String fNr, String navn) {
+  	Pasient(String navn, String fNr) {
   		fodselsnummer = fNr;
     	pasientNavn = navn;
-    	pasientID;
+    	pasientIDnummer = pasientID;
     	pasientID++;
   	}
 
@@ -20,7 +21,23 @@ class Pasient {
   		return pasientNavn;
   	}
 
-  	T
+	public int hentPasientID() {
+			return pasientIDnummer;
+	}
+
+	void leggTilResept(Resept r) {
+		resepter.leggTil(r);
+	}
+
+	/*
+	public Pasient _returnerPasientObjekt(String navn) {
+	  for (int i=0; i<PasientListe.stoerrelse(); i++) {
+		if (PasientListe.hent(i).hentNavn() == navn) {
+		  return PasientListe.hent(i);
+		}
+	  }
+	  return PasientListe.hent(0);
+  }*/
 
 
 }
