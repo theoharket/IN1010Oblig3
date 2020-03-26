@@ -7,6 +7,10 @@ class BlaaResept extends Resept {
     pris = middel.hentPris()*0.25;
   }
 
+  public String BlaaReseptText() {
+    return IDResept + "," + navnLege.hentNavn() + "," + legeMiddel.hentId() + ",blaa," + reit;
+  }
+
   public String toString() {
     return "Gyldigheten: " + gyldig + "\nID'en til resepten: " + IDResept + "\nLegemiddel: " + legeMiddel.hentNavn()
     + "\nNavn paa lege: " + navnLege + "\nAntall ganger igjen: "

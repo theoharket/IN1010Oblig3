@@ -12,6 +12,10 @@ class MilitaerResept extends Hvit {
     + reit + "\nFarge paa resept er: " + farge()+ "\nPrisen til legemiddelet er: " + prisaaBetale()+ "\n";
   }
 
+  public String MilitaerText() {
+    return IDResept + "," + navnLege.hentNavn() + "," + legeMiddel.hentId() + ",militaer," + reit;
+  }
+
   public String farge() {
     return "Hvit";
   }

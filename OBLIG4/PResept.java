@@ -23,6 +23,10 @@ public double settPrisPresept() {
 return pris;
 }
 
+public String PReseptText() {
+  return IDResept + "," + navnLege.hentNavn() + "," + legeMiddel.hentId() + ",p,";
+}
+
 public String toString() {
   return "Gyldigheten: " + gyldig + "\nID'en til resepten: " + IDResept + "\nLegemiddel: " + legeMiddel.hentNavn()
   + "\nNavn paa lege: " + navnLege + "\nAntall ganger igjen: " + reit

@@ -6,6 +6,10 @@ class Hvit extends Resept {
     pris = middel.hentPris();
   }
 
+  public String HvitText() {
+    return IDResept + "," + navnLege.hentNavn() + "," + legeMiddel.hentId() + ",hvit," + reit;
+  }
+
   public String toString() {
     return "Gyldigheten: " + gyldig + "\nID'en til resepten: " + IDResept + "\nLegemiddel: " + legeMiddel.hentNavn()
     + "\nNavn paa lege: " + navnLege.hentNavn() + "\nAntall ganger igjen: "
